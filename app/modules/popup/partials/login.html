@@ -1,0 +1,18 @@
+<div id="accountWrapper" xmlns="http://www.w3.org/1999/html">
+    <form novalidate name="register" id="loginForm" ng-model="loginForm">
+        <fieldset collapse="isCollapse">
+            <legend >
+                <span class="sub-title">Login</span>
+            </legend>
+            <div ng-show="registerForm.$trySubmit" class="alert alert-error">C'è un errore nel form. Per favore controlla i dati inseriti.</div>
+            <div class="dati">
+                <div class="fields">
+                    <input type="email" name="email" placeholder="Email" ng-model="loginForm.email" required />
+                    <!--<div ng-show="registerForm.email.$dirty || (registerForm.$invalid && registerForm.$trySubmit)" class="text-error"><small>Per favore inserire una email valida</small></div>-->
+                    <input type="password" name="password" ng-minlength="6" placeholder="Password" ng-maxlength="20" ng-model="loginForm.pw" required />
+                    <!--<div ng-show="registerForm.password.$dirty" class="text-error"><small>Per favore inserire una password valida</small></div>-->
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

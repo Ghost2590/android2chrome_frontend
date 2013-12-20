@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Getting Started Extension's Popup</title>
+		<link type="text/css" rel="stylesheet" href="css/popup.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/smoothness/jquery-ui-1.8.23.custom.css"/>
+		
+		<script type="text/javascript" src="../../lib/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../../lib/jquery-ui-1.8.23.custom.min.js"></script>
+		<script type="text/javascript" src="../../lib/popup.js"></script>
+		<script type="text/javascript" src="../../lib/json2.js"></script>
+		<script type="text/javascript" src="../../lib/md5.js"></script>
+
+	</head>
+	<body>
+		<div id="dialogLI" style="font-size:62.5%; display:none;">Login in corso...</div>
+		<div id="dialog" style="font-size:62.5%; display:none;"></div>
+		<div id="confirmDialog" style="font-size:62.5%; display:none;"></div>
+		<div id="dialogError" class="dialog" style="font-size:95%; display:none;"></div>
+				
+		<div id="popup">
+			
+			<div id="header">
+				<!--img src="images/icons/icon_32.png"--><h4> Android2Chrome</h4><p id="name"> by <!--a href="mailto: luca.prezzi90@gmail.com"-->Luca Prezzi<!--/a--></p>
+			</div>
+
+			<div id="tendina">
+				<div class="list account"></div>
+				<div class="list logout">Logout</div>
+				<div class="list options">Opzioni</div>
+				<div class="list history">Cronologia <span id="count"></span><img id="crono1" src="../../../images/next_selected.png"></div>
+				<div class="list exit">Esci</div>
+			</div>
+			
+			<div id="history" style="display:none;">
+				<div class="list back">Indietro <img id="crono2" src="../../../images/next_selected.png"></div>
+				<div class="list clear">Cancella cronologia</div>
+				<div class="list refresh">Controlla ora</div>
+				
+				<div id="visualizzare" class="intestazioni">Da visitare	</div>
+					<div id="pagination1" class="page"></div>
+				
+				<div id="visitati" class="intestazioni">Visitati</div>
+					<div id="pagination2" class="page"></div>
+			</div>
+			
+			<div id="login" style="display:none;">
+				<div id="insert">Inserisci i dati oppure <a id="register" href="">Registrati</a></div>
+				<div id="error_login"></div>
+				<div><input id="email" placeholder="email" tabindex=1 ></div>
+				<div id="divpw"><input id="pw" type="password" placeholder="password" tabindex=2 ></div>
+				<button id="buttonLogin" disabled="true" tabindex=3>Login</button>
+				<button id="buttonIndietro" tabindex=4>Annulla</button>
+			</div>
+		</div>
+	</body>
+</html>

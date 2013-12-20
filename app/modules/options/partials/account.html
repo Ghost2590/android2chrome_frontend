@@ -1,0 +1,42 @@
+<div id="accountWrapper" xmlns="http://www.w3.org/1999/html">
+    <form novalidate name="register" id="registerForm" ng-model="registerForm">
+        <!--<fieldset>-->
+        <div >
+            <div class="page-header">
+                <h3>Account</h3>
+
+            <!--<legend class="row header">-->
+                <!--<div class="col-md-3">Account</div>-->
+                <div class="pull-right buttons">
+                    <button type="button" class="btn btn-primary" ng-class="{disabled: !currentAccount}">Cancella l'account corrente</button>
+                    <button type="button" ng-show="!showRegisterData" class="btn btn-primary" ng-click="showRegisterData = !showRegisterData" data-toggle="collapse" data-target="#registerData">Registra un nuovo account</button>
+                    <button type="button" ng-show="showRegisterData" ng-click="clearForm()" class="btn btn-primary" data-toggle="collapse" data-target="#registerData">Annulla</button>
+                    <button type="button" ng-show="showRegisterData" ng-click="submit()" class="btn btn-primary" ng-class="{disabled: !register.$valid}">Registrati</button>
+                </div>
+            </div>
+
+            <div ng-show="currentAccount">Connesso come: {{currentAccount}}</div>
+            <div ng-show="!currentAccount">Nessun account connesso</div>
+        </div>
+
+        <div id="registerData" class="collapse in form-inline">
+            <div class="page-header">
+                <h4>Inserisci i dati</h4>
+            </div>
+
+            <div ng-show="registerForm.$trySubmit" class="alert alert-error">C'è un errore nel form. Per favore controlla i dati inseriti.</div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <input type="email" class="form-control " name="email" placeholder="Email del dispositivo mobile" ng-model="registerForm.email" required >
+                </div>
+                <div class="col-lg-4">
+                    <input type="password" class="form-control " name="password" placeholder="Password" ng-model="registerForm.pw" ng-minlength="6" ng-maxlength="20" required >
+                </div>
+                <div class="col-lg-4">
+                    <input type="password" class="form-control" name="password2" placeholder="Conferma password" ng-model="registerForm.pw2" ng-minlength="6" required>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

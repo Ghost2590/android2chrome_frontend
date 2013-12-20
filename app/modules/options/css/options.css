@@ -1,0 +1,42 @@
+/* line 1, ../sass/options.scss */
+body {
+  width: 960px;
+  margin: 0 auto;
+  min-height: 960px;
+}
+/* line 5, ../sass/options.scss */
+body .title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* line 10, ../sass/options.scss */
+body .page-header {
+  margin-top: 20px;
+}
+/* line 13, ../sass/options.scss */
+body .page-header h3, body .page-header h4 {
+  display: inline-block;
+  margin-bottom: -20px;
+}
+/* line 19, ../sass/options.scss */
+body .buttons {
+  display: inline-block;
+  float: right;
+  padding-top: 10px;
+}
+/* line 29, ../sass/options.scss */
+body form {
+  padding: 0 10px 0 10px;
+}
+/* line 36, ../sass/options.scss */
+body form .ng-invalid {
+  border: 1px solid red;
+}
+/* line 40, ../sass/options.scss */
+body form .ng-pristine {
+  border: 1px solid #cccccc;
+}
+/* line 44, ../sass/options.scss */
+body .sub-title {
+  font-size: 18px;
+}

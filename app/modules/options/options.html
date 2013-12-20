@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="android2chrome" ng-csp>
+    <head>
+      <meta charset="utf-8">
+      <title>Options | Android2Chrome</title>
+      <!--<link rel="stylesheet" href="../../css/app.css"/>-->
+
+
+        <link rel="stylesheet" href="../../css/bootstrap.css"/>
+        <!--<link rel="stylesheet" href="../../css/bootstrap.min.css"/>-->
+        <link rel="stylesheet" href="../../css/bootstrap-theme.css"/>
+        <!--<link rel="stylesheet" href="../../css/bootstrap-theme.min.css"/>-->
+
+        <!--<link rel="stylesheet" href="../../css/bootstrap-responsive.css"/>-->
+
+        <link type="text/css" href="css/options.css" rel="stylesheet" />
+    </head>
+    <body ng-controller="options">
+        <div id="container">
+            <h1 class="title">Android2Chrome</h1>
+
+            <!--<tabset>-->
+                <!--&lt;!&ndash;effect-on is a custom attribute added into directives of tabs in ui-bootstrap-tpls-0.6.0.js row:2660&ndash;&gt;-->
+                <!--<tab effect-on="page" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">-->
+                    <!--<div class="page" ng-include src="tab.content"></div>-->
+                <!--</tab>-->
+            <!--</tabset>-->
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li ng-class="{active: tab.active}" ng-repeat="tab in tabs"><a ng-href="#{{tab.title}}" data-toggle="tab">{{tab.title}}</a></li>
+                <!--<li><a href="#home" data-toggle="tab">Home</a></li>-->
+                <!--<li><a href="#profile" data-toggle="tab">Profile</a></li>-->
+                <!--<li><a href="#messages" data-toggle="tab">Messages</a></li>-->
+                <!--<li><a href="#settings" data-toggle="tab">Settings</a></li>-->
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade" ng-repeat="tab in tabs" id="{{tab.title}}" ng-class="{active: tab.active, in: tab.active}">
+                    <div ng-include src="tab.content"></div>
+                </div>
+                <!--<div class="tab-pane fade in active" id="home">...</div>-->
+                <!--<div class="tab-pane fade" id="profile">...</div>-->
+                <!--<div class="tab-pane fade" id="messages">...</div>-->
+                <!--<div class="tab-pane fade" id="settings">...</div>-->
+            </div>
+
+        </div>
+
+        <!-- In production use:-->
+        <!--<script src="ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
+
+        <script type="text/javascript" src="../../lib/jquery-1.7.2.min.js"></script>
+
+        <script src="../../lib/angular/angular.js"></script>
+        <script src="../../lib/angular/angular-resource.js"></script>
+        <script src="../../lib/bootstrap.js"></script>
+        <!--<script src="../../lib/bootstrap.min.js"></script>-->
+        <!--<script src="../../lib/ui-bootstrap-tpls-0.6.0.js"></script>-->
+
+
+        <script src="../../js/app.js"></script>
+        <script src="../../js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="../../js/filters.js"></script>
+        <script src="../../js/directives.js"></script>
+    </body>
+</html>
