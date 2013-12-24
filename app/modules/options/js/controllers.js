@@ -9,30 +9,8 @@
 //    controller('options', function optionsCtrl(locale, $scope) {
 function options($scope, resources) {
     var self = this;
-//
 
-    var registerResource = resources.register;
-    var loginResource = resources.login;
-//    var test = resources.test;
-//
-//    var Login = $resource(android2chrome.backendUrl+'/test/:name', {name:'@name'});
-    var user = {
-        name: "luca",
-        test: "testLuca"
-    };
-
-//    login.test({user: user}, function(data){
-//        console.log(data);
-//    });
-
-//    test.test({}, function(data){
-//        console.log(data);
-//    })
-
-
-
-
-//    resources.test();
+    var authenticationResource = resources.authentication;
 
     $scope.tabs = [
         {
@@ -55,15 +33,60 @@ function options($scope, resources) {
         }
    ];
 
+    $scope.login = function () {
+
+        var user = {
+            email: $scope.registerForm.email,
+            password: $scope.registerForm.pw
+        };
+
+        authenticationResource.login({op: "login", user: user}, function (data) {
+            console.log("ok: ", data);
+            $scope.currentAccount = data;
+
+            $scope.currentAccount = {
+                email: "luca.prezzi90@gmail.com"
+            };
+        }, function (error) {
+            console.log("error: ", error);
+            $scope.currentAccount = null;
+
+            $scope.currentAccount = {
+                email: "luca.prezzi90@gmail.com"
+            };
+        });
+    };
+
+    $scope.logout = function () {
+
+        var user = {
+            email: $scope.registerForm.email,
+            password: $scope.registerForm.pw
+        };
+
+        authenticationResource.logout({op: "logout", user: user}, function (data) {
+            console.log("ok: ", data);
+            $scope.currentAccount = null;
+        }, function (error) {
+            console.log("error: ", error);
+            $scope.currentAccount = null;
+        });
+    };
+
     $scope.registerForm = {};
     $scope.showRegisterData = true;
     $scope.registerForm.email = "luca.prezzi90@gmail.com";
-    $scope.currentAccount = "luca.prezzi90@gmail.com";
+    $scope.currentAccount = {
+        email: "luca.prezzi90@gmail.com"
+    };
 
     $scope.clearForm = function (){
         $scope.registerForm = {};
-        $scope.$apply();
-        $scope.showRegisterData = false;
+        $scope.registerDataToggle();
+    };
+
+    $scope.registerDataToggle = function(){
+        $scope.showRegisterData = !$scope.showRegisterData;
     };
 
 //    registerForm._valid = false;
@@ -81,7 +104,7 @@ function options($scope, resources) {
             password2: $scope.registerForm.pw2
         };
 //            console.log(data);
-        registerResource.register({user: data}, function(result){
+        authenticationResource.register({op: "register", user: data}, function(result){
             console.log(result.echo);
         });
 

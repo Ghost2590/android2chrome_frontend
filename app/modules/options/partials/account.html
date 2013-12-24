@@ -9,13 +9,15 @@
                 <!--<div class="col-md-3">Account</div>-->
                 <div class="pull-right buttons">
                     <button type="button" class="btn btn-primary" ng-class="{disabled: !currentAccount}">Cancella l'account corrente</button>
-                    <button type="button" ng-show="!showRegisterData" class="btn btn-primary" ng-click="showRegisterData = !showRegisterData" data-toggle="collapse" data-target="#registerData">Registra un nuovo account</button>
+                    <button type="button" ng-show="!showRegisterData" class="btn btn-primary" ng-click="registerDataToggle();" data-toggle="collapse" data-target="#registerData">Registra un nuovo account</button>
+                    <button type="button" ng-show="!showRegisterData && !currentAccount" class="btn btn-primary" ng-click="login()">Login</button>
+                    <button type="button" ng-show="!showRegisterData && currentAccount" class="btn btn-primary" ng-click="logout()">Logout</button>
                     <button type="button" ng-show="showRegisterData" ng-click="clearForm()" class="btn btn-primary" data-toggle="collapse" data-target="#registerData">Annulla</button>
                     <button type="button" ng-show="showRegisterData" ng-click="submit()" class="btn btn-primary" ng-class="{disabled: !register.$valid}">Registrati</button>
                 </div>
             </div>
 
-            <div ng-show="currentAccount">Connesso come: {{currentAccount}}</div>
+            <div ng-show="currentAccount">Connesso come: {{currentAccount.email}}</div>
             <div ng-show="!currentAccount">Nessun account connesso</div>
         </div>
 

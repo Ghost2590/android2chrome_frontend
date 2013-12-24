@@ -13,22 +13,15 @@ angular.module('android2chrome.services', ["ng", "ngResource"])
 
         var resources = {};
 
-        addResource('register', '/register/:user.json',
+        addResource('authentication', '/register/:op/:user.json',
             {
+                op: "@op",
                 user: "@user"
             },
             {
-                register: {method:"POST"}
-            }
-        );
-
-        addResource('login', '/login/:email/:password.json',
-            {
-                email: "@email",
-                password: "@password"
-            },
-            {
-                login: {method:"POST"}
+                register: {method:"POST"},
+                login: {method:"POST"},
+                logout: {method:"POST"}
             }
         );
 
