@@ -1,0 +1,23 @@
+<div id="deleteWrapper">
+	
+	<div class="row-fluid">		
+		<legend>
+			<div class="col-md-6 pull-left">
+                {{locale('endCustomer.searchCustomer.title')}}
+			</div>
+			<div class="col-md-6 pull-right">
+                <button type="button" class="btn btn-primary" ng-click="cancella()">Cancella</button>
+			</div>
+		</legend>
+	</div>
+
+	<div class="modal-body text-center">
+		<div class="email">Email: {{user.email}}</div>
+		<div class="password">Password: <input ng-model="user.password" type="password"></div>
+	</div>
+	
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" ng-click="close()">Annulla</button>
+	</div>
+	
+</div>

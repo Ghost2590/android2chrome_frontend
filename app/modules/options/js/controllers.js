@@ -85,6 +85,42 @@ function options($scope, resources) {
         $scope.registerDataToggle();
     };
 
+    $scope.deleteAccount = function (){
+//
+//        var dialog = $dialog.dialog({
+//            templateUrl: '../partials/modalDelete.html',
+//            controller: DialogCtrl,
+//            resolve: {
+//                item: function () {
+//                    return {
+//                        user: $scope.user,
+//                        auth: authenticationResource
+//                    };
+//                }
+//            }
+//        }).open();
+//
+//        dialog.then(function (results) {
+//            if (!results) {
+//                return;
+//            }
+//
+//            if (results.user) {
+//                console.log("OK", results);
+//                $scope.user = results.user;
+//
+//                $scope.registerForm = {};
+//                $scope.registerDataToggle();
+//            } else {
+//                console.log("NO SELECTION");
+//            }
+//        });
+//
+//        authenticationResource.delete({op: "delete", user: data}, function(result){
+//            console.log(result);
+//        });
+    };
+
     $scope.registerDataToggle = function(){
         $scope.showRegisterData = !$scope.showRegisterData;
     };
@@ -112,5 +148,31 @@ function options($scope, resources) {
     };
 //    console.log($scope)
 
+};
+
+
+var DialogCtrl = function ($scope, item, dialog) {
+
+
+    $scope.controller = item.controller;
+    var self = this;
+
+    $scope.user = item.user;
+
+    $scope.cancella = function () {
+
+        item.auth.delete({op: "delete", user: $scope.user}, function (data) {
+
+                dialog.close({});
+        });
+    };
+
+    $scope.close = function () {
+        var result = {
+            user: $scope.user
+        };
+
+        dialog.close(result);
+    };
 };
 android2chrome.controller('options', options);

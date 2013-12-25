@@ -16,9 +16,15 @@
     <body ng-controller="popup">
     <div id="container">
         <div id="header">
-            <!--img src="images/icons/icon_32.png"--><h4> Android2Chrome</h4><p id="name"> by <!--a href="mailto: luca.prezzi90@gmail.com"-->Luca Prezzi<!--/a--></p>
-            <a class="btn btn-primary" ng-click="close()">Esci</a>
-            <a ng-click="options()"><i class="icon-cog"></i></a>
+            <div class="btn-navbar row-fluid">
+                <div class="btn-group col-lg-8">
+                    <img src="../../../images/icons/icon_32.png"><span class="title"> Android2Chrome</span><span id="name"> by <!--a href="mailto: luca.prezzi90@gmail.com"-->Luca Prezzi<!--/a--></span>
+                </div>
+                <div class="btn-group col-lg-4">
+                    <a ng-click="options()" class=""><span class="glyphicon glyphicon-cog"></span></a>
+                    <a ng-click="close()" class=""><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            </div>
         </div>
 
         <!--<tabset class="tabs-left">-->

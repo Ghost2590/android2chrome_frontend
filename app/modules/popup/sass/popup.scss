@@ -1,3 +1,39 @@
 #container{
-  width: 500px;
+  width: 600px;
+  margin: 0 -15px 0 -15px;
+
+  #header{
+    &:first-child{
+      padding: 5px 0 10px 0;
+      .title{
+        font-weight: bold;
+        font-size: 18px;
+        position: relative;
+        top: 3px;
+      }
+      #name{
+        font-size: 10px;
+        padding-left: 10px;
+        position: relative;
+        top: 3px;
+      }
+    }
+    &:last-child{
+      float: right;
+      padding: 5px 0 10px 0;
+    }
+
+  }
+}
+
+#accountWrapper{
+  fieldset{
+    legend{
+      margin-bottom: 30px;
+    }
+
+    .dati{
+      text-align: center;
+    }
+  }
 }

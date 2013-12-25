@@ -11,19 +11,14 @@ function popup($scope, resources) {
     var self = this;
 //
 
-    var loginResource = resources.login;
+    var authenticationResource = resources.authentication;
+    var linksResource = resources.links;
 
     $scope.tabs = [
         {
-            title: "Login",
+            title: "Account",
             active: true,
             disabled: false,
-            content: "partials/login.html"
-        },
-        {
-            title: "Logout",
-            active: false,
-            disabled: true,
             content: "partials/login.html"
         },
         {
@@ -39,14 +34,47 @@ function popup($scope, resources) {
 
     $scope.login = function () {
 
-        var user = {
-            email: $scope.registerForm.email,
-            password: $scope.registerForm.pw
-        };
+//        var user = {
+//            email: $scope.registerForm.email,
+//            password: $scope.registerForm.pw
+//        };
+//
+//        authenticationResource.login({user: user}, function (data) {
+//           console.log(data);
+//            $scope.user = data;
+//        });
+        $scope.currentAccount = "test";
+    };
 
-        loginResource.login({user: user}, function (data) {
-           console.log(data);
-        });
+    $scope.logout = function () {
+
+        $scope.currentAccount = null;
+//        var user = {
+//            email: $scope.registerForm.email,
+//            password: $scope.registerForm.pw
+//        };
+
+//        $confirm("", "", null, function (result){
+//            console.log(result);
+//        });
+//
+//        authenticationResource.logout({user: user}, function (data) {
+//           console.log(data);
+//            $scope.user = data;
+//        });
+    };
+
+    $scope.get = function (){
+        linksResource.get({op: "get", user: $scope.user}, function(links){
+            console.log(links);
+        })
+    };
+
+    $scope.open = function (link){
+        //openLink
+        linksResource.update({op: "update", user: $scope.user, link: link}, function(result){
+            console.log(result);
+        })
     };
 
 };
